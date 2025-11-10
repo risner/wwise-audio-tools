@@ -10,6 +10,10 @@ file(REMOVE_RECURSE "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+if(APPLE)
+set(CMAKE_OSX_ARCHITECTURES "arm64;x86_64")
+endif()
+
 include_directories(
     include
     libogg/include
