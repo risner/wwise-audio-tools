@@ -64,6 +64,8 @@ set_target_properties(wwtools-bin PROPERTIES OUTPUT_NAME wwtools)
 set_target_properties(wwtools-shared-lib PROPERTIES OUTPUT_NAME wwtools)
 set_target_properties(wwtools-static-lib PROPERTIES OUTPUT_NAME wwtools)
 
+target_compile_definitions(wwtools-shared-lib PRIVATE WWTOOLS_LIBRARY)
+
 # Standard filesystem library needs additional linking options on older compilers
 # https://en.cppreference.com/w/cpp/filesystem#Notes
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
