@@ -84,6 +84,12 @@ else()
   target_link_libraries(wwtools-bin ogg vorbis)
 endif()
 
+if(APPLE)
+# Do a strip, the files are pretty large on macOS
+# set(CMAKE_INSTALL_DO_STRIP TRUE)
+set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "${CMAKE_SHARED_LINKER_FLAGS_RELEASE} -Wl,-x")
+endif()
+
 # To install to the default location, destination directive is unnecessary
 # https://cmake.org/cmake/help/latest/command/install.html#installing-targets
 install(TARGETS wwtools-bin)
